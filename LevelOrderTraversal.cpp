@@ -19,6 +19,7 @@ Node *GetNewNode(int data)
     Node *newNode = new Node(data);
     return newNode;
 }
+//Function for inserting node in binary tree
 Node *Insert(Node *root, int data)
 {
     if (root == NULL)
@@ -35,6 +36,7 @@ Node *Insert(Node *root, int data)
     }
     return root;
 }
+//Function for traversal (LevelOrder or Breadth-first traversal)
 void LevelOrder(Node *root)
 {
     if (root == NULL)
