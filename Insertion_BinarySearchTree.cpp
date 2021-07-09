@@ -13,6 +13,51 @@ class Node{
     }
 
 };
+int Sum(Node* root){
+    if(root==NULL){
+        return 0;
+    }
+   
+    int sum=0;
+    return Sum(root->left)+Sum(root->right)+root->data;  
+}
+//Iterative Inorder Traversal
+void InorderIterative(Node* root){
+    stack<Node*> st;
+    Node* curr=root;
+    while(!st.empty()|| curr!=NULL){
+        while(curr!=NULL){
+            st.push(curr);
+            curr=curr->left;
+        }
+        curr=st.top();
+        st.pop();
+        cout<<curr->data<<" ";
+        curr=curr->right;  
+    }
+
+}
+//Preoder Traversal Iterative->Space Complexity is O
+void PreorderIterative(Node* root){
+    stack<Node*> st;
+    Node* curr=root;
+   
+    while(!st.empty()|| curr!=NULL){
+        while(curr!=NULL){
+            cout<<curr->data<<" ";
+            if(curr->right){
+                st.push(curr->right);
+            }
+            curr=curr->left;
+        }
+        if(st.empty()==false){
+            curr=st.top();
+            st.pop();
+        }
+
+    }
+}
+
 Node* GetNewNode(int data){
     Node* newNode=new Node(data);
     return newNode;
@@ -53,8 +98,13 @@ int main(){
     root=Insert(root,8);
     root=Insert(root,22);
     root=Insert(root,11);
-    bool ans=Search(root,28);
-    cout<<ans;
+    root=Insert(root,28);
+    root=Insert(root,10);
+    cout<<"Inorder -> ";
+    InorderIterative(root);
+    cout<<endl;
+    cout<<"Preorder-> ";
+    PreorderIterative(root);
     
 
 
