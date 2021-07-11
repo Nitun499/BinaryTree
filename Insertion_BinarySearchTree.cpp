@@ -92,8 +92,8 @@ bool Search(Node* root ,int data){
 
 int main(){
     Node* root =NULL;
-    root=Insert(root,15);
     root=Insert(root,16);
+    root=Insert(root,15);
     root=Insert(root,12);
     root=Insert(root,8);
     root=Insert(root,22);
