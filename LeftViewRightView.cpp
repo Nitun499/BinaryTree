@@ -88,6 +88,18 @@ void LeftView(Node* root,int level,int &maxlevel){
     LeftView(root->left,level+1,maxlevel);
     LeftView(root->right,level+1,maxlevel);
 }
+//Right View of a BT
+void RightView(Node* root,int level,int &maxlevel){
+       if(root==NULL){
+        return;
+    }
+    if(maxlevel<level){
+        cout<<root->data<<" ";
+        maxlevel=level;
+    }
+    RightView(root->right,level+1,maxlevel);
+    RightView(root->left,level+1,maxlevel);
+}
 
 // Node* GetNewNode(int data){
 //     Node* newNode=new Node(data);
@@ -121,9 +133,9 @@ int main(){
    
     InorderIterative(root);
     cout<<endl;
-    cout<<"Left view of binary tree ->";
+    cout<<"Right view of binary tree ->";
     int maxlev=0;
-    LeftView(root,1,maxlev);
+    RightView(root,1,maxlev);
     cout<<endl;
     cout<<"Left view using iterative methode->";
     LeftViewIterative(root);
