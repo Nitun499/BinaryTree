@@ -36,27 +36,7 @@ Node *Insert(Node *root, int data)
     }
     return root;
 }
-//Function for traversal (LevelOrder or Breadth-first traversal)
-void LevelOrder(Node *root)
-{
-    if (root == NULL)
-    {
-        cout << "List is Empty" << endl;
-        return;
-    }
-    queue<Node *> q;
-    q.push(root);
-    while (!q.empty())
-    {
-        Node *current = q.front();
-        cout << current->data << " ";
-        if (current->left != NULL)
-            q.push(current->left);
-        if (current->right != NULL)
-            q.push(current->right);
-        q.pop();
-    }
-}
+
 //Recursive way->O(nLogn)
 //Problem is that it will not print nodes in same order as they appears in level
 void Findmap(Node* root,int hd,map<int,vector<int>> &m){
